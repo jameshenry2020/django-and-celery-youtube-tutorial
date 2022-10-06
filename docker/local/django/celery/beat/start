@@ -1,0 +1,7 @@
+#!/bin/bash
+
+set -o errexit
+set -o nounset
+
+rm -f './celerybeat.pid'
+celery -A dj_celery_proj beat -l INFO

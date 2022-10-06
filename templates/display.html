@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Django and celery</title>
+</head>
+<body>
+    <div style="margin-top:50px; width:100%;">
+        <h2>customer list</h2>
+        <ul>
+            {% for customer in customers_list %}
+               <li>{{customer.name}} -- {{customer.email}}</li>
+            {% empty %}
+                <li>No customer</li>
+            {% endfor %}
+        </ul>
+        
+    </div>
+</body>
+</html>
