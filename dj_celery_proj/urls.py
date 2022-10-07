@@ -14,11 +14,10 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
-from main.views import generate_random_customers, display_customers
+from django.urls import path, include
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', generate_random_customers, name="create-customer"),
-    path('customers-list/', display_customers, name="customers")
+    path('', include("main.urls"))
 ]

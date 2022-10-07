@@ -33,7 +33,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'main'
+    'main.apps.MainConfig',
+    'djcelery_email',
 ]
 
 MIDDLEWARE = [
@@ -128,22 +129,24 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-# Default primary key field type
-# https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
+
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 #email configuration
+#EMAIL_BACKEND = 'djcelery_email.backends.CeleryEmailBackend'
 EMAIL_BACKEND='django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'smtp.mailtrap.io'
-EMAIL_HOST_USER = '3ed0d0ca80b021'
-EMAIL_HOST_PASSWORD = '954c94d7af2817'
-EMAIL_PORT = '2525'
-EMAIL_USE_TLS = True
-DEFAULT_FROM_EMAIL='info@djangocelery.com'
-SITE_NAME='django and celery tutorial'
+EMAIL_HOST ='smtp.mailtrap.io'
+EMAIL_HOST_USER ='5e4e0303e552ba'
+EMAIL_HOST_PASSWORD ='37bc0278ef91b7'
+EMAIL_PORT ='2525'
+DEFAULT_FROM_EMAIL='info@henryyoutube.com'
+SITE_NAME='django youtube tutorial'
+DOMAIN='localhost:8080'
 
 
 #CELERY CONFIGURATIONS
 CELERY_BROKER_URL=env("CELERY_BROKER")
 CELERY_RESULT_BACKEND=env("CELERY_BACKEND")
+CELERY_TIMEZONE = "UTC"
+

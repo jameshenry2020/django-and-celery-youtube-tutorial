@@ -1,6 +1,6 @@
 from django.shortcuts import redirect, render
 from .tasks import create_multiple_customer
-from .models import Customer
+from .models import Customer, Post
 
 # Create your views here.
 
@@ -20,4 +20,16 @@ def display_customers(request):
             'customers_list':customers
             }
     return render(request, "display.html", context)
+
+
+def post_read_view(request, slug):
+    post=Post.objects.get(slug=slug)
+    context={
+        'post':post
+    }
+    return render(request, "post.html", context)
+
+
+
+
 
