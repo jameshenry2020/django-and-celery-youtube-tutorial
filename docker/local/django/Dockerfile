@@ -12,6 +12,7 @@ ENV PYTHONDONTWRITEBYTECODE 1
 RUN apt-get update \
   # dependencies for building Python packages
   && apt-get install -y build-essential \
+  && apt-get install -y python-lxml \
   # psycopg2 dependencies
   && apt-get install -y libpq-dev \
   # cleaning up unused files
