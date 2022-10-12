@@ -1,6 +1,6 @@
 from django.shortcuts import redirect, render
 from .tasks import create_multiple_customer
-from .models import Customer, Post
+from .models import Customer, News
 
 # Create your views here.
 
@@ -22,12 +22,20 @@ def display_customers(request):
     return render(request, "display.html", context)
 
 
-def post_read_view(request, slug):
-    post=Post.objects.get(slug=slug)
+# def post_read_view(request, slug):
+#     post=Post.objects.get(slug=slug)
+#     context={
+#         'post':post
+#     }
+#     return render(request, "post.html", context)
+
+def home_page(request):
+    articles_list=News.objects.all()
     context={
-        'post':post
+        "articles":articles_list
     }
-    return render(request, "post.html", context)
+    return render(request, "articles.html", context)
+
 
 
 
